@@ -1,20 +1,25 @@
 {
-  "name": "desafios",
+  "name": "desafio-3",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "type": "module",
+  "main": "./app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./src/app.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jaibersanchez/Sanchez_Jaiber_desafio1_Backend43330.git"
+    "url": "git+https://github.com/jaibersanchez/Sanchez_Jaiber_desafio2_Backend43330.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jaibersanchez/Sanchez_Jaiber_desafio1_Backend43330/issues"
+    "url": "https://github.com/jaibersanchez/Sanchez_Jaiber_desafio2_Backend43330/issues"
   },
-  "homepage": "https://github.com/jaibersanchez/Sanchez_Jaiber_desafio1_Backend43330#readme"
+  "homepage": "https://github.com/jaibersanchez/Sanchez_Jaiber_desafio2_Backend43330#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }

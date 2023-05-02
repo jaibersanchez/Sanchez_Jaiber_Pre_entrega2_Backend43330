@@ -1,10 +1,11 @@
-const fs = require('fs');
+import fs from 'fs';
 class ProductManager {
   id = 1;
     constructor(path) {
       this.path = path;
     }
     async addProduct(producto) {
+      try{
       if (!fs.existsSync(this.path)) {
         await fs.promises.writeFile(this.path, '[]');
       }
@@ -37,9 +38,13 @@ class ProductManager {
 
         }
       }
+    } catch(error){
+      console.log(error);
     }
+  }
     
     async getProducts() {
+      try{
       if (!fs.existsSync(this.path)) {
         await fs.promises.writeFile(this.path, '[]');
       }
@@ -48,8 +53,13 @@ class ProductManager {
       let productsContent = await fs.promises.readFile(this.path, 'utf-8');
       products = JSON.parse(productsContent);
       return products;
+    } catch(error){
+      console.log(error);
     }
+  }
+
     async getProductById(id) {
+      try{
       if (!fs.existsSync(this.path)) {
         await fs.promises.writeFile(this.path, '[]');
       } 
@@ -64,8 +74,12 @@ class ProductManager {
       }else{
       return 'producto No encontrado';
       }
+    } catch(error){
+      console.log(error);
     }
+  }
     async updateProduct(id, modifProducto) {
+      try{
       if (!fs.existsSync(this.path)) {
         await fs.promises.writeFile(this.path, '[]');
       }
@@ -88,9 +102,13 @@ class ProductManager {
       } else {
         return 'Producto no encontrado';
       }
+    }catch(error){
+      console.log(error);
     }
+  }
 
     async deleteProduct(id) {
+      try{
       if (!fs.existsSync(this.path)) {
         await fs.promises.writeFile(this.path, '[]');
       }
@@ -107,68 +125,12 @@ class ProductManager {
       } else {
         return 'Producto no encontrado';
       }
+    }catch(error){
+      console.log(error);
     }
   }
-
-  const product1 = {
-    title: 'producto prueba 1',
-    description: 'Este es un producto prueba',
-    price: 200,
-    thumbnail: 'Sin imagen',
-    code: 'abc123',
-    stock: 25,
-  };
-
-  const product2 = {
-    title: 'producto prueba 2',
-    description: 'Este es un producto prueba',
-    price: 400,
-    thumbnail: 'Sin imagen',
-    code: 'abc124',
-    stock: 44,
-  };
-
-  const modifProduct = {
-    description: 'Modificar descripción',
-  };
+}
 
   const productManager = new ProductManager('products.json');
 
-  productManager
-  .updateProduct(9, modifProduct)
-  .then((result) => {
-    console.log(result);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
-
-  productManager
-  .addProduct(product1)
-  .then((result) => {
-    console.log(result);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
-
-productManager
-  .addProduct(product2)
-  .then((result) => {
-    console.log(result);
-  })
-  .catch((error) => {
-    console.log(error);
-  }); 
-
-productManager
-  .getProducts()
-  .then((result) => console.log(result))
-  .catch((error) => console.log(error));
- 
- productManager
-  .getProductById(0)
-  .then((result) => console.log(result))
-  .catch((error) => console.log(error)); 
-
- 
+  export default ProductManager;
