@@ -15,7 +15,7 @@ app.get('/products', async (req, res)=> {
         if (limit) {
             return res.json(products.slice(0, limit));
         } else {
-            return req.json(products);
+            return res.json(products);
         }
     } catch (error){
         console.log(error)
