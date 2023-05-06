@@ -1,6 +1,6 @@
 import express from 'express';
-import ProductoManager from './ProductoManager'
-const container = new ProductoManager ('./src/products.json')
+import ProductoManager from './ProductoManager.js';
+const container = new ProductoManager ('./src/products.json');
 
 const app = express();
 
@@ -35,5 +35,5 @@ app.get('/products/:pid', async (req, res) => {
     }catch (error){
         console.log(error);
     }
-})
+});
 

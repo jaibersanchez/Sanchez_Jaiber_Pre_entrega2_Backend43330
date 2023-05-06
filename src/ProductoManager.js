@@ -20,7 +20,7 @@ class ProductManager {
        let productsContent = await fs.promises.readFile(this.path, 'utf-8');
        products = JSON.parse(productsContent);
 
-       const productFound = products.some((item) => item.code == code);
+       const productFound = products.some((item) => item.code == code);ƒ
        if (productFound) {
 
         return 'El producto ya existe';
@@ -78,7 +78,7 @@ class ProductManager {
       console.log(error);
     }
   }
-    async updateProduct(id, modifProducto) {
+    async updateProduct(id, modifyProduct) {
       try{
       if (!fs.existsSync(this.path)) {
         await fs.promises.writeFile(this.path, '[]');
@@ -87,7 +87,7 @@ class ProductManager {
       let productsContent = await fs.promises.readFile(this.path, 'utf-8');
       products = JSON.parse(productsContent);
   
-      const { title, description, price, thumbnail, stock } = modifProducto;
+      const { title, description, price, thumbnail, stock } = modifyProduct;
       let indexProduct = products.findIndex((index) => index.id === id);
       if (indexProduct !== -1) {
         products[indexProduct].title = title || products[indexProduct].title;

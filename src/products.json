@@ -1,8 +1,8 @@
 [
     {
       "id": 1,
-      "title": "producto prueba",
-      "description": "Este es un producto prueba",
+      "title": "Capilar",
+      "description": "Desenredante termoprotector",
       "price": 200,
       "thumbnail": "Sin imagen",
       "code": "abc123",
@@ -10,8 +10,8 @@
     },
     {
       "id": 2,
-      "title": "producto prueba 2",
-      "description": "Este es un producto prueba 2",
+      "title": "Capilar",
+      "description": "Tónico revitalizante",
       "price": 400,
       "thumbnail": "Sin imagen",
       "code": "abc124",
@@ -19,11 +19,74 @@
     },
     {
       "id": 3,
-      "title": "producto prueba 3",
-      "description": "Este es un producto prueba 2",
+      "title": "Maquillaje",
+      "description": "paleta de sombras dreamy",
       "price": 1200,
       "thumbnail": "Sin imagen",
       "code": "abc125",
       "stock": 3
+    },
+    {
+      "id": 4,
+      "title": "Maquillaje",
+      "description": "Paleta de sombras perfect mix",
+      "price": 400,
+      "thumbnail": "Sin imagen",
+      "code": "abc126",
+      "stock": 55
+    },
+    {
+      "id": 5,
+      "title": "Cuidado para la piel",
+      "description": "Suero facial vitamina C",
+      "price": 400,
+      "thumbnail": "Sin imagen",
+      "code": "abc127",
+      "stock": 23
+    },
+    {
+      "id": 6,
+      "title": "Cuidado para la piel",
+      "description": "Tonico facial",
+      "price": 400,
+      "thumbnail": "Sin imagen",
+      "code": "abc128",
+      "stock": 9
+    },
+    {
+      "id": 7,
+      "title": "Varios",
+      "description": "Kit de brochas profesionales",
+      "price": 400,
+      "thumbnail": "Sin imagen",
+      "code": "abc129",
+      "stock": 34
+    },
+    {
+      "id": 8,
+      "title": "Varios",
+      "description": "Sombras para entradas",
+      "price": 400,
+      "thumbnail": "Sin imagen",
+      "code": "abc130",
+      "stock": 12
+    },
+    {
+      "id": 9,
+      "title": "Corporal",
+      "description": "Exfoliante corporal",
+      "price": 400,
+      "thumbnail": "Sin imagen",
+      "code": "abc131",
+      "stock": 7
+    },
+    {
+      "id": 10,
+      "title": "Corporal",
+      "description": "Protector solar",
+      "price": 400,
+      "thumbnail": "Sin imagen",
+      "code": "abc132",
+      "stock": 5
     }
 ]
