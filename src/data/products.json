@@ -6,7 +6,9 @@
       "price": 200,
       "thumbnail": "Sin imagen",
       "code": "abc123",
-      "stock": 25
+      "stock": 25,
+      "category": "Capilar",
+      "status": true
     },
     {
       "id": 2,
@@ -15,7 +17,9 @@
       "price": 400,
       "thumbnail": "Sin imagen",
       "code": "abc124",
-      "stock": 44
+      "stock": 44,
+      "category": "Capilar",
+      "status": true
     },
     {
       "id": 3,
@@ -24,7 +28,9 @@
       "price": 1200,
       "thumbnail": "Sin imagen",
       "code": "abc125",
-      "stock": 3
+      "stock": 3,
+      "category": "Maquillaje",
+      "status": true
     },
     {
       "id": 4,
@@ -33,7 +39,9 @@
       "price": 400,
       "thumbnail": "Sin imagen",
       "code": "abc126",
-      "stock": 55
+      "stock": 55,
+      "category": "Maquillaje",
+      "status": true
     },
     {
       "id": 5,
@@ -42,7 +50,9 @@
       "price": 400,
       "thumbnail": "Sin imagen",
       "code": "abc127",
-      "stock": 23
+      "stock": 23,
+      "category": "Cuidado para la piel",
+      "status": true
     },
     {
       "id": 6,
@@ -51,7 +61,9 @@
       "price": 400,
       "thumbnail": "Sin imagen",
       "code": "abc128",
-      "stock": 9
+      "stock": 9,
+      "category": "Cuidado para la piel",
+      "status": true
     },
     {
       "id": 7,
@@ -60,7 +72,9 @@
       "price": 400,
       "thumbnail": "Sin imagen",
       "code": "abc129",
-      "stock": 34
+      "stock": 34,
+      "category": "Varios",
+      "status": true
     },
     {
       "id": 8,
@@ -69,7 +83,9 @@
       "price": 400,
       "thumbnail": "Sin imagen",
       "code": "abc130",
-      "stock": 12
+      "stock": 12,
+      "category": "Varios",
+      "status": true
     },
     {
       "id": 9,
@@ -78,7 +94,9 @@
       "price": 400,
       "thumbnail": "Sin imagen",
       "code": "abc131",
-      "stock": 7
+      "stock": 7,
+      "category": "Corporal",
+      "status": true
     },
     {
       "id": 10,
@@ -87,6 +105,8 @@
       "price": 400,
       "thumbnail": "Sin imagen",
       "code": "abc132",
-      "stock": 5
+      "stock": 5,
+      "category": "Corporal",
+      "status": true
     }
 ]
