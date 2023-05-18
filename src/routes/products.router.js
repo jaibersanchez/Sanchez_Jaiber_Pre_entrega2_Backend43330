@@ -1,5 +1,5 @@
 import express from 'express';
-import ProductoManager from '../productoManager.js';
+import ProductoManager from '../ProductoManager.js';
 
 const container = new ProductoManager('./src/data/products.json');
 export const productsRouter = express.Router();

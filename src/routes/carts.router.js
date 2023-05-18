@@ -1,6 +1,6 @@
 import express from 'express';
 import CartsManager from '../cartsManager.js';
-import ProductoManager from '../productoManager.js';
+import ProductoManager from '../ProductoManager.js';
 
 const containerCarts = new CartsManager('./src/data/carts.json');
 const containerProducts = new ProductoManager('./src/data/products.json');
