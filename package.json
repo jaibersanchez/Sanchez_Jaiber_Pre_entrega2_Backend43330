@@ -21,6 +21,7 @@
   "homepage": "https://github.com/jaibersanchez/Sanchez_Jaiber_desafio2_Backend43330#readme",
   "dependencies": {
     "express": "^4.18.2",
+    "express-handlebars": "^7.0.7",
     "nodemon": "^2.0.22"
   }
 }
