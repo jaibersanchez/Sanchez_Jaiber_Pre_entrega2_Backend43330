@@ -15,3 +15,51 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 export const __filename = fileURLToPath(import.meta.url);
 export const __dirname = path.dirname(__filename);
+
+import { connect } from 'mongoose';
+export async function connectMongo() {
+  try {
+    await connect('mongodb+srv://maurogarrodev:Aguantela73@coderbackend.1nd8mzz.mongodb.net/ecommerce');
+    console.log('Plug to mongo!');
+  } catch (error) {
+    console.log(error);
+    throw 'can not connect to the DB';
+  }
+}
+
+
+import { Server } from 'socket.io';
+import ProductoManager from './productoManager.js';
+import { ChatModel } from './DAO/models/chat.model.js';
+
+export function connectSocket(httpServer) {
+  const socketServer = new Server(httpServer);
+
+  socketServer.on('connection', (socket) => {
+    console.log('Un cliente se ha conectado ' + socket.id);
+
+    
+    socket.on('new-product', async (newProduct) => {
+      const data = new ProductoManager('./src/data/products.json');
+      await data.addProduct(newProduct);
+
+      const products = await data.getProducts();
+      console.log(products);
+      socketServer.emit('products', products);
+    });
+
+    socket.on('delete-product', async (productId) => {
+      const data = new ProductManager('./src/data/products.json');
+      await data.deleteProduct(productId);
+
+      const products = await data.getProducts();
+      socketServer.emit('products', products);
+    });
+
+    socket.on('msg_front_to_back', async (msg) => {
+      const msgCreated = await ChatModel.create(msg);
+      const msgs = await ChatModel.find({});
+      socketServer.emit('msg_back_to_front', msgs);
+    });
+  });
+}
