@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-class CartsManager {
+class CartManager {
   id = 1;
   constructor(path) {
     this.path = path;
@@ -40,12 +40,10 @@ class CartsManager {
         await fs.promises.writeFile(this.patch, '[]');
       }
 
-      /* Obtengo todos los carts y lo guardo en la variable CARTS */
       let carts = [];
       let cartContent = await fs.promises.readFile(this.path, 'utf-8');
       carts = JSON.parse(cartContent);
 
-      /* Buscamos un cart con ID del parametro */
       const cartFound = carts.find((item) => item.idCart == cartId);
       if (cartFound) {
         const productFound = cartFound.products.find((item) => item.idProduct == productId);
@@ -110,4 +108,4 @@ class CartsManager {
   }
 }
 
-export default CartsManager;
+export default CartManager;

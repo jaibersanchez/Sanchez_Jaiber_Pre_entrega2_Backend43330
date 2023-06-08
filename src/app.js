@@ -10,14 +10,15 @@ import { chatRouter } from './routes/chats.router.js';
 
 
 const app = express();
+const port = 8080;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.listen(8080, () => {
-    console.log('Se escucha el 8080');
+const httpServer = app.listen(port, () => {
+  console.log(`app listening on port http://localhost:${port}`);
 });
 
 connectMongo();

@@ -28,6 +28,7 @@ export class ProductService {
     const deleted = await ProductModel.deleteOne({ _id: id });
     return deleted;
   }
+
   async updateOne(id, title, description, price, thumbnail, code, stock, category, status) {
     if (!id) throw new Error('Invalid _id');
     this.validateProduct(title, description, price, thumbnail, code, stock, category, status);

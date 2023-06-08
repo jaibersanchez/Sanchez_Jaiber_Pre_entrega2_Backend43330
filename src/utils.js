@@ -1,4 +1,11 @@
 import multer from 'multer';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { connect } from 'mongoose';
+import { Server } from 'socket.io';
+import ProductoManager from './productoManager.js';
+import { ChatModel } from './DAO/models/chat.model.js';
+
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -11,26 +18,19 @@ const storage = multer.diskStorage({
 
 export const uploader = multer({ storage });
 
-import path from 'path';
-import { fileURLToPath } from 'url';
 export const __filename = fileURLToPath(import.meta.url);
 export const __dirname = path.dirname(__filename);
 
-import { connect } from 'mongoose';
+
 export async function connectMongo() {
   try {
-    await connect('mongodb+srv://maurogarrodev:Aguantela73@coderbackend.1nd8mzz.mongodb.net/ecommerce');
+    await connect('mongodb+srv://Jsanchez:Flordiaz890820@atlascluster.z0mmpcl.mongodb.net/?retryWrites=true&w=majority');
     console.log('Plug to mongo!');
   } catch (error) {
     console.log(error);
     throw 'can not connect to the DB';
   }
 }
-
-
-import { Server } from 'socket.io';
-import ProductoManager from './productoManager.js';
-import { ChatModel } from './DAO/models/chat.model.js';
 
 export function connectSocket(httpServer) {
   const socketServer = new Server(httpServer);
@@ -49,7 +49,7 @@ export function connectSocket(httpServer) {
     });
 
     socket.on('delete-product', async (productId) => {
-      const data = new ProductManager('./src/data/products.json');
+      const data = new ProductoManager('./src/data/products.json');
       await data.deleteProduct(productId);
 
       const products = await data.getProducts();

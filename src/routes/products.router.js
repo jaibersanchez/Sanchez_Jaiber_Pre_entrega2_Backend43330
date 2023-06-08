@@ -1,5 +1,5 @@
 import express from 'express';
-import ProductoManager from '../ProductoManager.js';
+import ProductoManager from '../productoManager.js';
 import { ProductService } from '../services/products.service.js';
 
 const container = new ProductoManager('./src/data/products.json');
