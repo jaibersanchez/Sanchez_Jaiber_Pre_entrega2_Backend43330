@@ -3,7 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { connect } from 'mongoose';
 import { Server } from 'socket.io';
-import ProductoManager from './productoManager.js';
+import ProductoManager from './DAO/fileSystem/productoManager.js';
 import { ChatModel } from './DAO/models/chat.model.js';
 
 

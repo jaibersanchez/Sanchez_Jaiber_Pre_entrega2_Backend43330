@@ -1,7 +1,7 @@
 import express from 'express';
-import ProductoManager from '../productoManager.js';
+import ProductManager from '../DAO/fileSystem/productManager.js';
 
-const container = new ProductoManager('./src/data/products.json');
+const container = new ProductManager('../src/data/products.json');
 export const productsRealTime = express.Router();
 
 productsRealTime.get('/', async (req, res) => {

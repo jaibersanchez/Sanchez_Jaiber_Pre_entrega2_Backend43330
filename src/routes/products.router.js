@@ -1,78 +1,68 @@
 import express from 'express';
-import ProductoManager from '../productoManager.js';
 import { ProductService } from '../services/products.service.js';
-
-const container = new ProductoManager('./src/data/products.json');
 
 const Service = new ProductService();
 
 export const productsRouter = express.Router();
 
 productsRouter.get('/', async (req, res) => {
-  
   try {
-    const products = await Service.getAll();
+    const products = await Service.getAll(req.query);
     return res.status(200).json({
       status: 'success',
       msg: 'listado de productos',
-      data: products,
+      payload: products,
     });
   } catch (e) {
     console.log(e);
     return res.status(500).json({
       status: 'error',
       msg: 'something went wrong :(',
-      data: {},
+      payload: {},
     });
   }
 });
 
 productsRouter.get('/:id', async (req, res) => {
-  
   try {
     const { id } = req.params;
     const product = await Service.getOneById(id);
     return res.status(200).json({
       status: 'success',
       msg: 'listado de productos',
-      data: product,
+      payload: product,
     });
   } catch (e) {
     console.log(e);
     return res.status(500).json({
       status: 'error',
       msg: 'something went wrong :(',
-      data: {},
+      payload: {},
     });
   }
 });
 
-productsRouter.post(
-  '/',
- async (req, res) => {
-   
-    try {
-      const { title, description, price, thumbnail, code, stock, category, status } = req.body;
+productsRouter.post('/', async (req, res) => {
+  try {
+    const { title, description, price, thumbnail, code, stock, category, status } = req.body;
 
-      const productCreated = await Service.createOne(title, description, price, thumbnail, code, stock, category, status);
-      return res.status(201).json({
-        status: 'success',
-        msg: 'product created',
-        data: productCreated,
-      });
-    } catch (e) {
-      console.log(e);
-      return res.status(500).json({
-        status: 'error',
-        msg: 'something went wrong :(',
-        data: {},
-      });
-    }
+    const productCreated = await Service.createOne(title, description, price, thumbnail, code, stock, category, status);
+    return res.status(201).json({
+      status: 'success',
+      msg: 'product created',
+      payload: productCreated,
+    });
+  } catch (e) {
+    console.log(e);
+    return res.status(500).json({
+      status: 'error',
+      msg: 'something went wrong :(',
+      payload: {},
+    });
   }
-);
+});
 
 productsRouter.put('/:id', async (req, res) => {
-  
   try {
     const { id } = req.params;
     const { title, description, price, thumbnail, code, stock, category, status } = req.body;
@@ -82,20 +72,19 @@ productsRouter.put('/:id', async (req, res) => {
     return res.status(201).json({
       status: 'success',
       msg: 'product uptaded',
-      data: productUptaded,
+      payload: productUptaded,
     });
   } catch (e) {
     console.log(e);
     return res.status(500).json({
       status: 'error',
       msg: 'something went wrong :(',
-      data: {},
+      payload: {},
     });
   }
 });
 
 productsRouter.delete('/:id', async (req, res) => {
-  
   try {
     const { id } = req.params;
 
@@ -103,14 +92,14 @@ productsRouter.delete('/:id', async (req, res) => {
     return res.status(200).json({
       status: 'success',
       msg: 'product deleted',
-      data: {},
+      payload: {},
     });
   } catch (e) {
     console.log(e);
     return res.status(500).json({
       status: 'error',
       msg: 'something went wrong :(',
-      data: {},
+      payload: {},
     });
   }
 });
