@@ -51,10 +51,10 @@ cartsRouter.put('/:cid/products/:pid', async (req, res) => {
 /* Continuar corrigiendo este */
 cartsRouter.put('/:cid', async (req, res) => {
   try {
-    const cid = req.params.cid;
-    const productsAdd = req.body;
-    const cart = await cartService.updateCart(cid, productsAdd);
-    res.status(200).json({ status: 'success', payload: cart });
+    const { cid } = req.params;
+    const { products } = req.body;
+    const updatedCart = await cartService.updateCart(cid, products);
+    return res.status(200).json({ status: 'success', payload: updatedCart });
   } catch (error) {
     console.log(error);
   }
