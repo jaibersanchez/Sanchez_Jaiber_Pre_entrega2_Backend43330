@@ -3,7 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { connect } from 'mongoose';
 import { Server } from 'socket.io';
-import ProductoManager from './DAO/fileSystem/productoManager.js';
+import ProductManager from './DAO/fileSystem/productManager.js';
 import { ChatModel } from './DAO/models/chat.model.js';
 
 
@@ -40,7 +40,7 @@ export function connectSocket(httpServer) {
 
     
     socket.on('new-product', async (newProduct) => {
-      const data = new ProductoManager('./src/data/products.json');
+      const data = new ProductManager('./src/data/products.json');
       await data.addProduct(newProduct);
 
       const products = await data.getProducts();
@@ -49,7 +49,7 @@ export function connectSocket(httpServer) {
     });
 
     socket.on('delete-product', async (productId) => {
-      const data = new ProductoManager('./src/data/products.json');
+      const data = new ProductManager('./src/data/products.json');
       await data.deleteProduct(productId);
 
       const products = await data.getProducts();

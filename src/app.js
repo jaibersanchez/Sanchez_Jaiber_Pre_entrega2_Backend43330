@@ -27,7 +27,7 @@ connectMongo();
 app.use('/api/products', productsRouter);
 app.use('/api/carts', cartsRouter);
 
-app.use('/home', productsHtml);
+app.use('/products', productsHtml);
 app.use('/carts', cartsHtml);
 app.use('/realtimeproducts', productsRealTime);
 app.use('/chat', chatRouter);
