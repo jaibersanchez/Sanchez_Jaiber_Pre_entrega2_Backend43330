@@ -28,7 +28,7 @@ class CartManager {
       carts.push(newCart);
       let cartString = JSON.stringify(carts, null, 2);
       await fs.promises.writeFile(this.path, cartString);
-      return 'Carrito creado!';
+      return 'Created Cart!';
     } catch (error) {
       console.log(error);
     }
@@ -55,17 +55,17 @@ class CartManager {
           carts.splice(indexCart, 1, cartFound);
           let cartString = JSON.stringify(carts, null, 2);
           await fs.promises.writeFile(this.path, cartString);
-          return 'Agregaste un producto más';
+          return 'You added an additional quantity of the product to the cart';
         } else {
           cartFound.products.push({ idProduct: productId, quantity: 1 });
           const indexCart = carts.indexOf(cartFound);
           carts.splice(indexCart, 1, cartFound);
           let cartString = JSON.stringify(carts, null, 2);
           await fs.promises.writeFile(this.path, cartString);
-          return 'producto agregado al carrito';
+          return 'Product added to the cart';
         }
       } else {
-        return 'No existe el carrito';
+        return 'Cart not found';
       }
     } catch (error) {
       console.log(error);
