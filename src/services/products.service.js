@@ -22,7 +22,7 @@ export class ProductService {
       querySort = {};
     }
 
-    const productsPaginate = await ProductModel.paginate(queryCategory, { limit: limit || 5, page: page || 1, sort: querySort });
+    const productsPaginate = await ProductModel.paginate(queryCategory, { limit: limit || 10, page: page || 1, sort: querySort });
 
     //Creo e Incorporo los link prev y next antes de devolver todo
     productsPaginate.prevLink = productsPaginate.prevPage ? `/api/products?page=${productsPaginate.prevPage}` : null;

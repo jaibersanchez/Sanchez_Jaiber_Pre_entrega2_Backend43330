@@ -14,7 +14,7 @@ cartsRouter.get('/', async (req, res) => {
   }
 });
 
-cartsRouter.get('/:cid/products', async (req, res) => {
+cartsRouter.get('/:cid', async (req, res) => {
   try {
     const cid = req.params.cid;
     const cart = await cartService.getCartById(cid);

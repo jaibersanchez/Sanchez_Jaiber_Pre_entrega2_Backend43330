@@ -30,6 +30,7 @@ productsHtml.get('/', async (req, res) => {
         code: doc.code,
         stock: doc.stock,
         category: doc.category,
+        quantity: doc.quantity,
       };
     });
 
